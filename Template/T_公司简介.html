@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-cn" style="font-size: 90%;">
+  <head>
+    <stl:include file="@/include/header.html"></stl:include> 
+  </head>
+  <body>
+    <main>
+      <!-- Header -->
+      <stl:include file="@/include/nav.html"></stl:include>
+      <!-- End Header -->
+      <section>
+        <!-- Blog Single Item Banner -->
+        <section style="background-repeat: repeat;background-size: cover;" class="g-bg-cover g-bg-white-gradient-opacity-v1--after hidden-sm-down" data-bg-img-src="{Channel.ImageUrl}">
+          <div class="container text-center g-pos-rel g-z-index-1">
+            <div class="row d-flex justify-content-center align-content-end flex-wrap g-min-height-300">
+              <div class="col-lg-7 mt-auto">
+                <div class="mb-5">
+                  <h1 class="g-color-white g-font-weight-600 g-mb-20">{Channel.Description}</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- End Blog Single Item Banner -->
+        <!-- breadcrumbs -->
+        <section class="g-bg-size-cover g-bg-pos-center g-bg-cover g-bg-black-opacity-0_5--after g-color-white g-py-50 g-mb-20 hidden-md-up" style="background-image: url({Channel.ImageUrl});">
+          <div class="container-fluid g-bg-cover__inner">
+            <header class="g-mb-20">
+              <h3 class="h1 g-font-weight-500 g-mb-5">{Channel.Description}</h3>
+            </header>
+            
+            <ul class="u-list-inline">
+              <li class="list-inline-item g-mr-7">
+                <a class="u-link-v5 g-color-white g-color-primary--hover" href="{Stl.SiteUrl}/">主页</a>
+                <i class="fa fa-angle-right g-ml-7"></i>
+              </li>
+              <li class="list-inline-item g-mr-7">
+                <stl:a class="u-link-v5 g-color-white g-color-primary--hover" channelIndex="关于文旅"></stl:a>
+                <i class="fa fa-angle-right g-ml-7"></i>
+              </li>
+              <li class="list-inline-item g-color-deeporange">
+                <span>{Channel.Title}</span>
+              </li>
+            </ul>
+          </div>
+        </section>        
+        <!-- end breadcrumbs -->
+        <section class="container-fluid g-py-50">
+          <div class="row">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-10">
+              <h2 class="h2 g-color-black g-font-weight-300 g-line-height-1_8 mb-5">
+                {Channel.Content}
+              </h2>
+            </div>
+          </div>
+          <div class="row no-gutters">
+            <div class="col-lg-3">
+              <!-- Icon Blocks -->
+              <div class="u-block-hover g-bg-primary g-color-white text-center g-py-120 g-px-50">
+                <span class="d-block g-font-size-50 g-rounded-5 mb-2">
+                  一个家庭
+                </span>
+                <h3 class="h3 g-font-weight-600 mb-30">和睦共处纪律严明</h3>
+              </div>
+              <!-- End Icon Blocks -->
+            </div>
+            
+            <div class="col-lg-3">
+              <!-- Icon Blocks -->
+              <div class="u-block-hover g-bg-teal g-color-white text-center g-py-120 g-px-50">
+                <span class="d-block g-font-size-50 g-rounded-5 mb-2">
+                  一个军队
+                </span>
+                <h3 class="h3 g-font-weight-600 mb-30">以客户为中心</h3>
+              </div>
+              <!-- End Icon Blocks -->
+            </div>
+            
+            <div class="col-lg-3">
+              <!-- Icon Blocks -->
+              <div class="u-block-hover g-color-white text-center g-py-120 g-px-50" style="background-color: rgb(122, 205, 58);">
+                <span class="d-block g-font-size-50 g-rounded-5 mb-2">
+                  一个学校
+                </span>
+                <h3 class="h3 g-font-weight-600 mb-30">以奋斗者为本</h3>
+              </div>
+              <!-- End Icon Blocks -->
+            </div>
+            
+            <div class="col-lg-3">
+              <!-- Icon Blocks -->
+              <div class="u-block-hover g-color-white text-center g-py-120 g-px-50" style="background-color: rgb(205, 229, 77);">
+                <span class="d-block g-font-size-50 g-rounded-5 mb-2">
+                  一个社会
+                </span>
+                <h3 class="h3 g-font-weight-600 mb-30">中国旅游集团20强</h3>
+              </div>
+              <!-- End Icon Blocks -->
+            </div>
+          </div>
+        </section>
+        <section class="container-fluid g-pt-20 g-pb-60">
+          <div class="row">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-10">
+              <h2 class="h2 g-color-black g-font-weight-300 g-line-height-1_8 mb-5">
+                <stl:channel channelIndex="旅游" type="Content"></stl:channel>
+              </h2>
+            </div>
+          </div>
+          <stl:contents channelIndex="旅游">
+            <stl:itemTemplate type="Item">
+              <div class="row justify-content-between">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-5 g-mb-30">
+                  <h4 style="font-size: 16pt"><stl:content type="Title"></stl:content></h4>
+                  <stl:content type="Content"></stl:content>
+                </div>
+                <div class="col-lg-5">
+                  <img class="img-fluid w-100" src="{Content.ImageUrl}" alt="{Content.Title}">
+                </div>
+                <div class="col-lg-1"></div>
+              </div>
+              <hr class="g-brd-gray-light-v4 g-my-40">
+            </stl:itemTemplate>
+            <stl:itemTemplate type="AlternatingItem">
+              <div class="row justify-content-between">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-5">
+                  <img class="img-fluid w-100" src="{Content.ImageUrl}" alt="{Content.Title}">
+                </div>
+                <div class="col-lg-5 g-mb-30">
+                  <h4 style="font-size: 16pt"><stl:content type="Title"></stl:content></h4>
+                  <stl:content type="Content"></stl:content>
+                </div>
+                <div class="col-lg-1"></div>
+              </div>
+              <hr class="g-brd-gray-light-v4 g-my-40">
+            </stl:itemTemplate>
+          </stl:contents>
+        </section>
+        <!-- End Breadcrumb -->      
+      </section>
+      <stl:include file="@/include/footer.html"></stl:include>
+    </main>
+  </body>
+</html>

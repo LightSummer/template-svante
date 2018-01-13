@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-cn" style="font-size: 90%;">
+  <head>
+    <stl:include file="@/include/header.html"></stl:include> 
+  </head>
+  <body>
+    <main>
+      <!-- Header -->
+      <stl:include file="@/include/nav.html"></stl:include>
+      <!-- End Header -->
+      <section>
+        <section class="g-bg-gray-light-v5 g-py-50">
+          <div class="container-fluid" style="max-width: 90%">
+            <div class="d-sm-flex text-center">
+              <div class="align-self-center">
+                <h2 class="h3 g-font-weight-300 w-100 g-mb-10 g-mb-0--md">{Channel.Title}</h2>
+              </div>
+              
+              <div class="align-self-center ml-auto">
+                <ul class="u-list-inline">
+                  <li class="list-inline-item g-mr-5">
+                    <a class="u-link-v5 g-color-main" href="{Stl.SiteUrl}/">主页</a>
+                    <i class="g-color-gray-light-v2 g-ml-5">/</i>
+                  </li>
+                  <li class="list-inline-item g-mr-5">
+                    <span><stl:channel channelIndex="信息发布"></stl:channel></span>
+                    <i class="g-color-gray-light-v2 g-ml-5">/</i>
+                  </li>
+                  <li class="list-inline-item g-color-primary">
+                    <span>{Channel.Title}</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Blog Minimal Blocks -->
+        <div class="container-fluid g-pt-20 g-pb-20" style="max-width: 90%">
+          <div class="row justify-content-between">
+            <div class="col-lg-9 flex-lg-unordered g-mb-80">
+              <div class="g-pl-20--lg">
+                <!--list start-->
+                <ul class="list-unstyled">
+                  <stl:pageContents pageNum="7">
+                    <li class="g-brd-bottom g-brd-gray-light-v4 g-pa-20 g-mb-minus-1">
+                      <stl:a class="d-block u-link-v5 g-color-gray-dark-v4 rounded g-px-10 g-py-2">
+                        <i class="mr-2 fa fa-angle-right g-color-green"></i> <span class="h5 g-color-primary--hover g-font-weight-600">{Content.Title}</span>
+                        <span class="date pull-right"><stl:content type="AddDate" formatString="yyyy-MM-dd"></stl:content></span>
+                      </stl:a>
+                    </li>
+                  </stl:pageContents>
+                </ul>             
+                <!-- list end -->
+                <!-- Pagination -->
+                <nav id="stickyblock-end" class="text-center" aria-label="Page Navigation">
+                  <ul class="list-inline">
+                    <stl:pageItem type="PreviousPage">
+                      <stl:successTemplate>
+                        <li class="list-inline-item float-left hidden-xs-down">
+                          <a class="u-pagination-v1__item u-pagination-v1-4 g-brd-gray-light-v3 g-brd-primary--hover g-rounded-50 g-pa-7-16" href="{Current.Url}" aria-label="Previous">
+                            <span aria-hidden="true">
+                              <i class="fa fa-angle-left g-mr-5"></i> 上一页
+                            </span>
+                            <span class="sr-only">上一页</span>
+                          </a>
+                        </li>
+                      </stl:successTemplate>
+                      <stl:failureTemplate>
+                        
+                      </stl:failureTemplate>
+                    </stl:pageItem>
+                    
+                    <stl:pageItem type="PageNavigation" listNum="5">
+                      <stl:successTemplate>
+                        <li class="list-inline-item">
+                          <a class="u-pagination-v1__item u-pagination-v1-4  g-rounded-50 g-pa-7-14" href="{Current.Url}">{Current.Num}</a>
+                        </li>  
+                      </stl:successTemplate>
+                      <stl:failureTemplate>
+                        <li class="list-inline-item">
+                          <a class="u-pagination-v1__item u-pagination-v1-4  g-rounded-50 g-pa-7-14 u-pagination-v1-4--active" href="#">{Current.Num}</a>
+                        </li>  
+                      </stl:failureTemplate>
+                    </stl:pageItem> 
+                    
+                    <stl:pageItem type="NextPage">
+                      <stl:successTemplate>
+                        <li class="list-inline-item float-right hidden-xs-down">
+                          <a class="u-pagination-v1__item u-pagination-v1-4 g-brd-gray-light-v3 g-brd-primary--hover g-rounded-50 g-pa-7-16" href="{Current.Url}" aria-label="Next">
+                            <span aria-hidden="true">
+                              下一页 <i class="fa fa-angle-right g-ml-5"></i>
+                            </span> 
+                            <span class="sr-only">下一页</span>
+                          </a>
+                        </li>  
+                      </stl:successTemplate>
+                      <stl:failureTemplate>
+                        
+                      </stl:failureTemplate>
+                    </stl:pageItem>
+                    
+                  </ul>
+                </nav>
+                <!-- End Pagination -->
+              </div>
+            </div>
+            
+            <div class="col-lg-3 flex-lg-first g-brd-right--lg g-brd-gray-light-v4 g-mb-80">
+              <div class="g-pr-20--lg">
+                <div id="stickyblock-start" class="js-sticky-block g-sticky-block--lg g-pt-50" data-start-point="#stickyblock-start" data-end-point="#stickyblock-end">
+                  <!-- Links -->
+                  <div class="g-mb-50">
+                    <h3 class="h5 g-color-black g-font-weight-600 mb-4">版块链接</h3>
+                    <ul class="list-unstyled g-font-size-16 mb-0">
+                      <stl:channels upLevel="1">
+                        <li>
+                          <stl:a class="d-block u-link-v5 g-color-gray-dark-v4 g-color-primary--hover rounded g-px-20 g-py-8" ><i class="mr-2 fa fa-angle-right">{Channel.Title}</i></stl:a>
+                        </li>
+                      </stl:channels> 
+                    </ul>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Blog Minimal Blocks -->      
+      </section>
+      <stl:include file="@/include/footer.html"></stl:include>
+    </main> 
+  </body>
+</html>

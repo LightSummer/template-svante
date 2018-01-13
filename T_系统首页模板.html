@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-cn" style="font-size: 90%;">
+  <head>
+    <!-- Title -->
+    <title>首页 - {Stl.SiteName}</title>  
+    <!-- Required Meta Tags Always Come First -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge"> 
+    
+    <!-- CSS Global Compulsory -->
+    <link rel="stylesheet" href="{stl.siteurl}/css/szwl.css">
+    <link rel="stylesheet" href="{stl.siteurl}/css/masterslider.main.css">
+    <link rel="stylesheet" href="{stl.siteurl}/css/style.css">
+  </head>
+  
+  <body>
+    <main>
+      <!-- Header -->
+      <stl:include file="@/include/nav.html"></stl:include>
+      <!-- End Header -->
+      
+      <section>
+        <div class="ms-static-layers-template">
+          <!-- masterslider -->
+          <div class="master-slider ms-skin-black-2 round-skin" id="masterslider">
+            <stl:contents channelIndex="Banner" isImage="true" totalNum="5">
+              <div class="ms-slide slide-2">
+                <img data-src="{Content.ImageUrl}" alt="{Content.Title}" />
+              </div>
+            </stl:contents>
+          </div>
+          
+          <!-- end of masterslider -->
+          
+          <div class="u-divider u-divider-solid u-divider-center g-brd-primary mx-auto g-my-20">
+          </div>
+          <div style="width: 100%;background-image: url(images/home-mid-1.png);background-position: center bottom;background-repeat: no-repeat;background-size: cover;">
+            <div class="container" style="width: 90%;">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="card rounded-0" style="background:transparent;">
+                    <h3 class="card-header h5 rounded-0" style="background:transparent;">
+                      <i class="fa fa-file-text g-font-size-default g-mr-5 g-color-green"></i> <stl:a channelIndex="新闻资讯" target="_blank"></stl:a>
+                    </h3>
+                    
+                    <div class="card-block" style="background-color: rgba(255,255,255,0.3)">
+                      
+                      <stl:contents channelIndex="新闻资讯" totalNum="1" isImage="true" startNum="1" order="AddDate" isRecommend="true">
+                        <div class="row g-mb-20">
+                          <div class="col-md-3 hidden-sm-down text-center">
+                            <img class="img-fluid" style="max-height:100px" src="{Content.ImageUrl}">
+                          </div>
+                          <div class="col-sm-12 col-12 col-md-9">
+                            <h4 class="h5"><stl:a><stl:content type="Title" wordNum="23" ellipsis=""></stl:content></stl:a></h4>
+                            <p class="card-text g-color-gray-dark-v2" style="text-indent: 2em;text-align: left;"><stl:content type="Summary" wordNum="65" ellipsis="..."></stl:content></p>
+                          </div>
+                        </div>
+                      </stl:contents> 
+                      
+                      <div class="row">
+                        <div class="col-sm-12">
+                          <ul class="list-unstyled mb-0">
+                            <stl:contents channelIndex="新闻资讯" totalNum="9" isRecommend="false">
+                              <li>
+                                <stl:a class="d-block u-link-v5 g-color-gray-dark-v2 rounded g-px-10 g-py-2 g-color-primary--hover">
+                                  <i class="mr-2 fa fa-angle-right g-color-green"></i>{Content.Title}<span class="date pull-right g-font-size-13"><stl:content type="AddDate" formatString="yyyy-MM-dd"></stl:content></span>
+                                </stl:a>
+                              </li> 
+                            </stl:contents>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="col-md-6">
+                  <div class="card rounded-0" style="background:transparent;">
+                    <h3 class="card-header h5 rounded-0" style="background:transparent;">
+                      <i class="fa fa-tasks g-font-size-default g-mr-5 g-color-green"></i> <stl:a channelIndex="通知公告" target="_blank"></stl:a>
+                    </h3>
+                    
+                    <div class="card-block" style="background-color: rgba(255,255,255,0.3)">
+                      <ul class="list-unstyled mb-0">
+                        <stl:contents channelIndex="通知公告" totalNum="1" isRecommend="true" order="LastEditDate"> 
+                          <li><stl:a class="d-block u-link-v5 g-color-gray-dark-v2 rounded g-px-10 g-py-2 g-color-primary--hover" ><i class="mr-2 fa fa-angle-right g-color-green"></i> {Content.Title} </stl:a></li>
+                        </stl:contents>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="card rounded-0" style="background:transparent;">
+                    <h3 class="card-header h5 rounded-0" style="background:transparent;">
+                      <i class="fa fa-flag g-font-size-default g-mr-5 g-color-red"></i> <stl:a channelIndex="党的建设" target="_blank"></stl:a>
+                    </h3>
+                    
+                    <div class="card-block" style="background-color: rgba(255,255,255,0.3)">
+                      <ul class="list-unstyled mb-0">
+                        <stl:contents channelIndex="党的建设" totalNum="4" isRecommend="true" order="LastEditDate" scope="Children">
+                          <li><stl:a class="d-block u-link-v5 g-color-gray-dark-v2 rounded g-px-10 g-py-2 g-color-primary--hover" ><i class="mr-2 fa fa-angle-right g-color-green"></i> {Content.Title} <span class="date pull-right g-font-size-13"><stl:content type="AddDate" formatString="yyyy-MM-dd"></stl:content></span></stl:a></li>
+                        </stl:contents>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="card rounded-0" style="background:transparent;">
+                    <h3 class="card-header h5 rounded-0" style="background:transparent;">
+                      <i class="fa fa-fire-extinguisher g-font-size-default g-mr-5 g-color-green"></i> <stl:a channelIndex="安全生产" target="_blank"></stl:a>
+                    </h3>
+                    
+                    <div class="card-block" style="background-color: rgba(255,255,255,0.3)">
+                      <ul class="list-unstyled mb-0">
+                        <stl:contents channelIndex="安全生产" totalNum="3" isRecommend="true" order="LastEditDate">
+                          <li><stl:a class="d-block u-link-v5 g-color-gray-dark-v2 rounded g-px-10 g-py-2 g-color-primary--hover" ><i class="mr-2 fa fa-angle-right g-color-green"></i> {Content.Title} <span class="date pull-right g-font-size-13"><stl:content type="AddDate" formatString="yyyy-MM-dd"></stl:content></span></stl:a></li>
+                        </stl:contents>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="u-divider u-divider-solid u-divider-center g-brd-gray-light-v3 mx-auto g-mb-20">
+          </div>
+          <div style="width: 100%;background-image: url(images/home-mid-2.png);background-position: center bottom;background-repeat: no-repeat;background-size: cover;">
+            <div class="container" style="width: 90%">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="card rounded-0" style="background:transparent;">
+                    <h3 class="card-header h5 rounded-0" style="background:transparent;">
+                      <i class="fa fa-tasks g-font-size-default g-mr-5 g-color-green"></i> <stl:a channelIndex="文明之窗" target="_blank"></stl:a>
+                    </h3>
+                    
+                    <div class="card-block" style="background-color: rgba(255,255,255,0.3)">
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <ul class="list-unstyled mb-0">
+                            <stl:contents channelIndex="文明之窗" totalNum="1" isRecommend="true" order="LastEditDate">
+                              <li><stl:a class="d-block u-link-v5 g-color-gray-dark-v2 rounded g-px-10 g-py-2 g-color-primary--hover" ><i class="mr-2 fa fa-angle-right g-color-green"></i> {Content.Title} <span class="date pull-right g-font-size-13"><stl:content type="AddDate" formatString="yyyy-MM-dd"></stl:content></span></stl:a></li>
+                            </stl:contents>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="card rounded-0" style="background:transparent;">
+                    <h3 class="card-header h5 rounded-0" style="background:transparent;">
+                      <i class="fa fa-link g-font-size-default g-mr-5 g-color-green"></i> 直属公司链接
+                    </h3>
+                    
+                    <div class="card-block">
+                      <div class="row">
+                        <div class="col-lg-1">
+                        </div>
+                        <stl:contents channelIndex="直属公司链接" totalNum="5">
+                          <div class="col-lg-2">
+                            <stl:a  target="_blank">
+                              <img class="img-fluid" src="{Content.ImageUrl}">
+                            </stl:a>
+                          </div> 
+                        </stl:contents>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        
+      </section>
+      
+      <stl:include file="@/include/footer.html"></stl:include>
+      
+    </main>
+    
+    
+    <script>
+      var slider = new MasterSlider();
+      function shownext() {
+      slider.api.next();
+      }
+      var canchange;
+      
+      slider.setup('masterslider', {
+      width: 1200,
+      height: 500,
+      fullwidth: true,
+      centerControls: false,
+      speed: 18,
+      view: 'fade'
+      });
+      
+      slider.control('bullets', {autohide: false});
+      $(document).ready(function(){
+      canchange = setInterval(shownext,11000);
+      slider.api.addEventListener(MSSliderEvent.CHANGE_START , function(){
+      clearInterval(canchange);
+      });
+      slider.api.addEventListener(MSSliderEvent.CHANGE_END , function(){
+      canchange = setInterval(shownext,11000);
+      });
+      });
+    </script>
+  </body>
+</html>
+

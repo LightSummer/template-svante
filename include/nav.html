@@ -1,0 +1,92 @@
+<header id="js-header" class="u-header u-header--static">
+    <div class="u-header__section u-header__section--light g-bg-white g-transition-0_3 g-py-10">
+        <nav class="js-mega-menu navbar navbar-toggleable-md">
+        <div class="container" style="width:100%">
+            <!-- Responsive Toggle Button -->
+            <button class="navbar-toggler navbar-toggler-right btn g-line-height-1 g-brd-none g-pa-0 g-pos-abs g-right-0" type="button"
+                    aria-label="Toggle navigation"
+                    aria-expanded="false"
+                    aria-controls="navBar"
+                    data-toggle="collapse"
+                    data-target="#navBar">
+            <span class="hamburger hamburger--slider">
+                <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+                </span>
+            </span>
+            </button>
+            <!-- End Responsive Toggle Button -->
+
+            <!-- Logo -->
+            <a href="{stl.siteurl}/" class="navbar-brand">
+            <img src="{Stl.Logo}" alt="Image Description">
+            </a>
+            <!-- End Logo -->
+
+            <!-- Navigation -->
+            <div class="collapse navbar-collapse align-items-center flex-sm-row g-pt-10 g-pt-5--lg g-mr-40--lg g-font-size-14" id="navBar">
+            <ul class="navbar-nav text-uppercase g-pos-rel g-font-weight-600 ml-auto">
+                <!-- 网站首页 -->
+                <li class="nav-item g-mx-10--lg g-mx-15--xl">
+                <stl:if testType="ChannelName" testOperate="Equals" value="首页">  
+                    <stl:yes>
+                        <a href="{Stl.SiteUrl}/" class="nav-link g-py-7 g-px-0 active">网站首页</a>
+                    </stl:yes> 
+                    <stl:no>
+                        <a href="{Stl.SiteUrl}/" class="nav-link g-py-7 g-px-0">网站首页</a>
+                    </stl:no>   
+                </stl:if>
+                </li>
+                <!-- End 网站首页 -->
+
+                <stl:channels topLevel="0" groupChannel="nav">
+                    <stl:if type="CountOfChannels" operate="GreatThan" value="0">
+                        <stl:yes> 
+                            <stl:if testType="UpChannelOrSelf">
+                                <stl:successTemplate>
+                                    <li class="nav-item hs-has-sub-menu g-mx-10--lg g-mx-15--xl active" data-animation-in="fadeIn" data-animation-out="fadeOut">
+                                        <stl:a id="{Channel.ChannelId}" class="nav-link g-py-7 g-px-0" href="#" aria-haspopup="true" aria-expanded="false" aria-controls="about-szwl-pages">{Channel.Title}</a>
+                                        
+                                        <ul class="hs-sub-menu list-unstyled u-shadow-v11 g-brd-top g-brd-primary g-brd-top-2 g-min-width-220 g-mt-20 g-mt-10--lg--scrolling" id="{Channel.ChannelId}-pages" aria-labelledby="{Channel.ChannelId}">
+                                            <stl:channels>
+                                                <li class="dropdown-item"><stl:a class="nav-link">{Channel.Title}</stl:a></li>
+                                            </stl:channels> 
+                                        </ul>
+                                    </li>
+                                </stl:successTemplate>
+                                <stl:failureTemplate>
+                                    <li class="nav-item hs-has-sub-menu g-mx-10--lg g-mx-15--xl" data-animation-in="fadeIn" data-animation-out="fadeOut">
+                                        <stl:a id="{Channel.ChannelId}" class="nav-link g-py-7 g-px-0" href="#" aria-haspopup="true" aria-expanded="false" aria-controls="about-szwl-pages">{Channel.Title}</a>
+                                        
+                                        <ul class="hs-sub-menu list-unstyled u-shadow-v11 g-brd-top g-brd-primary g-brd-top-2 g-min-width-220 g-mt-20 g-mt-10--lg--scrolling" id="{Channel.ChannelId}-pages" aria-labelledby="{Channel.ChannelId}">
+                                            <stl:channels>
+                                                <li class="dropdown-item"><stl:a class="nav-link">{Channel.Title}</stl:a></li>
+                                            </stl:channels> 
+                                        </ul>
+                                    </li>
+                                </stl:failureTemplate>
+                            </stl:if>  
+                        </stl:yes>
+                        <stl:no>
+                            <stl:if testType="UpChannelOrSelf">
+                                <stl:successTemplate>
+                                    <li class="nav-item g-mx-10--lg g-mx-15--xl active">
+                                        <stl:a class="nav-link g-py-7 g-px-0">{Channel.Title}</stl:a>
+                                    </li> 
+                                </stl:successTemplate>
+                                <stl:failureTemplate>
+                                    <li class="nav-item g-mx-10--lg g-mx-15--xl ">
+                                        <stl:a class="nav-link g-py-7 g-px-0">{Channel.Title}</stl:a>
+                                    </li> 
+                                </stl:failureTemplate>
+                            </stl:if>   
+                        </stl:no>
+                    </stl:if> 
+                </stl:channels>  
+            </ul>
+            </div>
+            <!-- End Navigation -->
+        </div>
+        </nav>
+    </div>
+</header>

@@ -1,0 +1,105 @@
+<div class="g-my-20">    
+</div>  
+<footer class="g-color-gray-light-v1 g-py-5" style="background-color: rgba(233, 233, 233, 0.83);">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 text-center">
+                Copyright &copy; {Stl.SiteName} &nbsp;
+                <a href="javascript:;" class="g-color-gray-light-v1 g-color-primary--hover" target="_blank">{Stl.ICP}</a>
+            </div>
+        </div>
+    </div>
+</footer>  
+<a class="js-go-to u-go-to-v1" href="#"
+    data-type="fixed"
+    data-position='{
+        "bottom": 15,
+        "right": 15
+    }'
+    data-offset-top="400"
+    data-compensation="#js-header"
+    data-show-effect="zoomIn">
+    <i class="hs-icon hs-icon-arrow-top"></i>
+</a>
+
+<!-- JS Global Compulsory -->
+<script src="{Stl.SiteUrl}/js/szwl.min.js"></script>
+<script src="{Stl.SiteUrl}/js/framework.js"></script>
+<script src="{Stl.SiteUrl}/js/framework.extras.js"></script>
+<link rel="stylesheet" property="stylesheet" href="{Stl.SiteUrl}/css/framework.extras.css">
+<script src="{Stl.SiteUrl}/js/masterslider.min.js"></script>
+<script src="{Stl.SiteUrl}/js/jquery.multiscroll.js"></script>
+<script src="{Stl.SiteUrl}/js/jquery.timelinr-0.9.6.js"></script>
+
+<!-- JS Plugins Init. -->
+<script>
+  $(document).on('ready', function () {
+    // initialization of carousel
+    $.HSCore.components.HSCarousel.init('.js-carousel');
+
+    $('#carousel1').slick('setOption', 'responsive', [{
+      breakpoint: 1200,
+      settings: {
+        slidesToShow: 3
+      }
+    }, {
+      breakpoint: 992,
+      settings: {
+        slidesToShow: 2
+      }
+    }, {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 2
+      }
+    }, {
+      breakpoint: 576,
+      settings: {
+        slidesToShow: 1
+      }
+    }, {
+      breakpoint: 446,
+      settings: {
+        slidesToShow: 1
+      }
+    }], true);
+
+    // Header
+    $.HSCore.components.HSHeader.init($('#js-header'));
+    $.HSCore.helpers.HSHamburgers.init('.hamburger');
+
+    // initialization of HSMegaMenu plugin
+    $('.js-mega-menu').HSMegaMenu({
+      event: 'hover',
+      pageContainer: $('.container'),
+      breakpoint: 991
+    });
+
+    // initialization of go to
+    $.HSCore.components.HSGoTo.init('.js-go-to');
+
+    $.HSCore.helpers.HSHeightCalc.init();
+  });
+
+  $(window).on('load', function () {
+    // initialization of HSScrollNav
+    $.HSCore.components.HSScrollNav.init($('#js-scroll-nav'), {
+      duration: 700,
+      easing: 'easeOutExpo',
+      over: $('.u-secondary-navigation')
+    });
+
+    // initialization of masonry.js
+    $('.masonry-grid').imagesLoaded().then(function () {
+      $('.masonry-grid').masonry({
+        // options
+        columnWidth: '.masonry-grid-sizer',
+        itemSelector: '.masonry-grid-item',
+        percentPosition: true
+      });
+    });
+
+    // initialization of sticky blocks
+    $.HSCore.components.HSStickyBlock.init('.js-sticky-block');
+  });
+</script>

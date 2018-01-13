@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn" style="font-size: 90%;">
+  <head>
+    <stl:include file="@/include/header.html"></stl:include> 
+  </head>
+  <body>
+    <main>
+      <!-- Header -->
+      <stl:include file="@/include/nav.html"></stl:include>
+      <!-- End Header -->
+      <section>
+        <!-- breadcrumbs -->
+        <section class="g-bg-size-cover g-bg-pos-center g-bg-cover g-bg-black-opacity-0_5--after g-color-white g-py-50 g-mb-20" style="background-image: url({Channel.ImageUrl});">
+          <div class="container-fluid g-bg-cover__inner">
+            <header class="g-mb-20">
+              <h3 class="h1 g-font-weight-500 g-mb-5">{Channel.Description}</h3>
+            </header>
+            <ul class="u-list-inline">
+              <li class="list-inline-item g-mr-7">
+                <a class="u-link-v5 g-color-white g-color-primary--hover" href="{Stl.SiteUrl}/">主页</a>
+                <i class="fa fa-angle-right g-ml-7"></i>
+              </li>
+              <li class="list-inline-item g-mr-7">
+                <stl:a class="u-link-v5 g-color-white g-color-primary--hover" channelIndex="关于文旅"></stl:a>
+                <i class="fa fa-angle-right g-ml-7"></i>
+              </li>
+              <li class="list-inline-item g-color-deeporange">
+                <span>{Channel.Title}</span>
+              </li>
+            </ul>
+          </div>
+        </section>        
+        <!-- end breadcrumbs -->
+        <!-- Timeline #01 -->
+        <section class="g-pb-100">
+          <div class="container-fluid">
+            <div class="text-center g-mb-50 hidden-xs-down">
+              
+            </div>
+            
+            <div class="row u-timeline-v1-wrap g-mx-minus-15">
+              <stl:contents> 
+                <stl:itemTemplate type="Item">
+                  <!-- Timeline Box 1-->
+                  <div class="col-md-6 g-orientation-right g-pl-60 g-pl-15--md g-pr-40--md g-mb-60 g-mb-0--md">
+                    <div class="u-timeline-v1__icon g-color-gray-light-v5 g-ml-13 g-ml-minus-10--md">
+                      <i class="fa fa-circle"></i>
+                    </div>
+                    
+                    <div class="g-pos-rel">
+                      <!-- Timeline Arrow -->
+                      <div class="hidden-sm-down u-triangle-inclusive-v1--left g-top-30 g-z-index-2">
+                        <div class="u-triangle-inclusive-v1--left__front g-brd-white-left g-brd-white-right"></div>
+                        <div class="u-triangle-inclusive-v1--left__back g-brd-gray-light-v4-left g-brd-gray-light-v4-right"></div>
+                      </div>
+                      
+                      <div class="hidden-md-up u-triangle-inclusive-v1--right g-top-30 g-z-index-2">
+                        <div class="u-triangle-inclusive-v1--right__front g-brd-white-right"></div>
+                        <div class="u-triangle-inclusive-v1--right__back g-brd-gray-light-v4-right"></div>
+                      </div>
+                      <!-- End Timeline Arrow -->
+                      
+                      <!-- Timeline Content -->
+                      <article class="u-timeline-v1 g-pa-5">
+                        
+                        <div class="g-mt-20 g-py-0 g-px-0">
+                          <h3 class="g-font-weight-300 g-mb-15 text-center">
+                            <stl:a class="btn btn-sm u-btn-blue rounded-0">{Content.Source}</stl:a>
+                            <i class="fa fa-trophy"></i>
+                            <stl:a class="u-link-v5 g-color-main g-color-primary--hover"></stl:a>
+                          </h3>
+                        </div>
+                        
+                        <div class="media g-font-size-16 g-mb-20">
+                          <div class="media-body align-self-center text-uppercase text-center">
+                            <stl:a class="u-link-v5 g-color-main g-color-primary--hover">{Content.SubTitle}</stl:a>
+                          </div>
+                        </div>
+                      </article>
+                      <!-- End Timeline Content -->
+                    </div>
+                  </div>
+                  <!-- End Timeline Box 1-->
+                </stl:itemTemplate>
+                <stl:itemTemplate type="AlternatingItem">
+                  <!-- Timeline Box 2-->
+                  <div class="col-md-6 g-orientation-left g-pl-60 g-pl-40--md g-mt-60--md g-mb-60 g-mb-0--md">
+                    <div class="u-timeline-v1__icon g-color-gray-light-v5 g-mr-13 g-mr-minus-8--md">
+                      <i class="fa fa-circle"></i>
+                    </div>
+                    
+                    <div class="g-pos-rel">
+                      <!-- Timeline Arrow -->
+                      <div class="u-triangle-inclusive-v1--right g-top-30 g-z-index-2">
+                        <div class="u-triangle-inclusive-v1--right__front g-brd-white-right"></div>
+                        <div class="u-triangle-inclusive-v1--right__back g-brd-gray-light-v4-right"></div>
+                      </div>
+                      <!-- End Timeline Arrow -->
+                      
+                      <!-- Timeline Content -->
+                      <article class="u-timeline-v1 g-pa-5">
+                        
+                        <div class="g-mt-20 g-py-0 g-px-0">
+                          <h3 class="g-font-weight-300 g-mb-15 text-center">
+                            <stl:a class="btn btn-sm u-btn-teal rounded-0" >{Content.Source}</stl:a>
+                            <i class="fa fa-trophy"></i>
+                            <stl:a class="u-link-v5 g-color-main g-color-primary--hover" ></stl:a>
+                          </h3>
+                        </div>
+                        
+                        <div class="media g-font-size-16 g-mb-20">
+                          <div class="media-body align-self-center text-uppercase text-center">
+                            <stl:a class="u-link-v5 g-color-main g-color-primary--hover" >{Content.SubTitle}</stl:a>
+                          </div>
+                        </div>
+                      </article>
+                      <!-- End Timeline Content -->
+                    </div>
+                  </div>
+                  <!-- End Timeline Box 2-->
+                  
+                </stl:itemTemplate>
+              </stl:contents>
+            </div>
+          </div>
+        </section>
+        <!-- End Timeline #01 -->
+      </section>
+      
+      <stl:include file="@/include/footer.html"></stl:include>
+    </main>
+    <script>
+      var slider = new MasterSlider();
+      
+      slider.setup('masterslider', {
+      width: 1200,
+      height: 500,
+      fullwidth: true,
+      centerControls: false,
+      speed: 18,
+      view: 'basic'
+      });
+      
+      slider.control('bullets', {autohide: false});
+    </script>
+  </body>
+</html>

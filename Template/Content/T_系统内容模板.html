@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn" style="font-size: 90%;">
+  <head>
+    <stl:include file="@/include/header.html"></stl:include> 
+  </head>
+  <body>
+    <main>
+      <!-- Header -->
+      <stl:include file="@/include/nav.html"></stl:include>
+      <!-- End Header -->
+      <section>
+        <section class="g-bg-gray-light-v5 g-py-50">
+          <div class="container-fluid" style="max-width: 90%">
+            <div class="d-sm-flex text-center">
+              <div class="align-self-center">
+                <h2 class="h3 g-font-weight-300 w-100 g-mb-10 g-mb-0--md">{Content.Title}</h2>
+              </div>
+              <div class="align-self-center ml-auto">
+                <ul class="u-list-inline">
+                  <li class="list-inline-item g-mr-5">
+                    <a class="u-link-v5 g-color-main" href="{Stl.SiteUrl}/">主页</a>
+                    <i class="g-color-gray-light-v2 g-ml-5">/</i>
+                  </li>
+                  <li class="list-inline-item g-mr-5">
+                    <span><stl:channel channelIndex="信息发布"></stl:channel></span>
+                    <i class="g-color-gray-light-v2 g-ml-5">/</i>
+                  </li>
+                  <li class="list-inline-item g-color-primary">
+                    <span>{Channel.Title}</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Blog Minimal Blocks -->
+        <div class="container-fluid g-pt-20 g-pb-20" style="max-width: 90%">
+          <div class="row justify-content-between">
+            <div class="col-lg-9 flex-lg-unordered g-mb-80">
+              <div class="g-pl-20--lg">
+                <!-- article start -->
+                <h2 class="g-color-black g-font-weight-600 text-center g-mb-30">{Content.Title}</h2>
+                <span style="text-indent: 2em;" class="g-font-size-18 g-font-weight-500">
+                  {Content.Content}
+                </span>
+                <!-- end article -->
+              </div>
+            </div>
+            <div class="col-lg-3 flex-lg-first g-brd-right--lg g-brd-gray-light-v4 g-mb-80">
+              <div class="g-pr-20--lg">
+                <div id="stickyblock-start" class="js-sticky-block g-sticky-block--lg g-pt-50" data-start-point="#stickyblock-start" data-end-point="#stickyblock-end">
+                  <!-- Links -->
+                  <div class="g-mb-50">
+                    <h3 class="h5 g-color-black g-font-weight-600 mb-4">版块链接</h3>
+                    <ul class="list-unstyled g-font-size-16 mb-0">
+                      <stl:channels upLevel="1">
+                        <li>
+                          <stl:a class="d-block u-link-v5 g-color-gray-dark-v4 g-color-primary--hover rounded g-px-20 g-py-8" ><i class="mr-2 fa fa-angle-right">{Channel.Title}</i></stl:a>
+                        </li>
+                      </stl:channels> 
+                    </ul>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Blog Minimal Blocks -->      
+      </section>
+      <stl:include file="@/include/footer.html"></stl:include>
+    </main>
+  </body>
+</html>

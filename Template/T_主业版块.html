@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn" style="font-size: 90%;">
+  <head> 
+    <stl:include file="@/include/header.html"></stl:include> 
+  </head>
+  <body>
+    <main>
+      <!-- Header -->
+      <stl:include file="@/include/nav.html"></stl:include>
+      <!-- End Header -->
+      <section>
+        <section class="g-bg-gray-light-v5">
+          <div id="myContainer">
+            
+            <div class="ms-left">
+              <stl:contents totalNum="1" isImage="true">  
+                <div class="ms-section section1" style="background: transparent url({Content.ImageUrl}) no-repeat scroll center;background-size: cover">
+                  <div class="graduated"></div>
+                  <div class="fullscreen">
+                    <h1></h1>
+                    <h2></h2>
+                    <div id="download"></div>
+                    <br />
+                    
+                    <p id="donations">
+                      
+                    </p>
+                  </div>
+                </div>
+              </stl:contents>
+              
+              <stl:contents totalNum="1" isImage="true" startNum="2">  
+                <div class="ms-section section2" style="background: transparent url({Content.ImageUrl}) no-repeat scroll center;background-size: cover">
+                  <div class="graduated"></div>
+                  <div class="fullscreen">
+                    <h1></h1>
+                    <h2></h2>
+                    <div id="download"></div>
+                    <br />
+                    <p id="donations"></p>
+                  </div>
+                </div>
+              </stl:contents>
+            </div>
+            
+            <div class="ms-right">
+              <stl:contents totalNum="1" isImage="true">  
+                <div class="ms-section section1 g-px-20" style="background-color: rgba(0,0,0,0.6);color: #fff;">
+                  <div class="content" style="padding-top: 40%">
+                    <h1 style="font-weight: bold;">{Content.Title}</h1>
+                    <p style="text-indent: 2em;line-height: 2.5;font-size: 1.15rem;">{Content.Summary}</p>
+                  </div>
+                </div>
+              </stl:contents>
+              <stl:contents totalNum="1" isImage="true" startNum="2"> 
+                <div class="ms-section section2 g-px-20" style="background-color: rgba(60,111,164,0.7);color: #fff;">
+                  <div class="content" style="padding-top: 40%">
+                    <h1 style="font-weight: bold;">{Content.Title}</h1>
+                    <p style="text-indent: 2em;line-height: 2.5;font-size: 1.15rem;">{Content.Summary}</p>
+                  </div>
+                </div> 
+              </stl:contents>
+            </div>  
+          </div>
+          
+        </section>
+        
+      </section>
+      
+      <stl:include file="@/include/footer.html"></stl:include>
+    </main> 
+    <script>
+      $(document).ready(function() {
+      /*
+      $('#fullpage').fullpage({
+      scrollingSpeed: 1000,
+      navigation: true,
+      navigationColor: 'rgb(122, 205, 58)',
+      navigationPosition: 'right',
+      });*/
+      $('#myContainer').multiscroll({
+      verticalCentered : true,
+      anchors: ['first', 'second', 'third'],
+      menu: '#menu',
+      navigation: true,
+      navigationPosition: 'left',
+      navigationTooltips: ['', '', ''],
+      
+      afterLoad: function(anchor, index){
+      if(index==2 || index == 3){
+      $('#infoMenu li a').css('color', '#f2f2f2');
+      }
+      if(index==1){
+      $('#infoMenu li a').css('color', '#333'); 
+      }
+      }
+      });
+      });
+    </script>
+  </body>
+</html>

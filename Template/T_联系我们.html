@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn" style="font-size: 90%;">
+  <head>
+    <!-- Title -->
+    <title>{Channel.Title} - {Stl.SiteName}</title>
+    
+    <stl:include file="@/include/header.html"></stl:include>
+  </head>
+  <body>
+    <main>
+      <!-- Header -->
+      <stl:include file="@/include/nav.html"></stl:include>
+      <!-- End Header -->
+      <section>
+        <section class="g-bg-gray-light-v5 g-py-20" id="js-header-2017">
+          <div class="container-fluid" style="max-width: 90%">
+            <div class="d-sm-flex text-center">
+              <div class="align-self-center">
+                <h2 class="h3 g-font-weight-300 w-100 g-mb-10 g-mb-0--md">联系我们</h2>
+              </div>
+              
+            </div>
+          </div>
+        </section>
+        <section class="" data-options="{direction: &quot;reverse&quot;, settings_mode_oneelement_max_offset: &quot;150&quot;}">
+          
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-lg-6 g-px-0 g-mb-0--lg">
+                <div id="allmap"></div>
+              </div>
+              <!-- align-self-center -->
+              <div class="col-lg-6 g-pt-0 text-lg-left g-pos-rel g-color-black" style="background: transparent;">
+                <div class="g-px-15 g-py-30">
+                  <!-- Nav tabs -->
+                  <ul class="nav nav-fill u-nav-v1-1 u-nav-primary g-mb-20" role="tablist" data-target="nav-1-1-primary-hor-fill" data-tabs-mobile-type="slide-up-down" data-btn-classes="btn btn-md btn-block rounded-0 u-btn-outline-white g-mb-20" style="display: block;">
+                    <stl:contents channelIndex="联系我们">
+                      <stl:if type="ItemIndex" operate="Equals" value="1">
+                        <stl:yes>
+                          <li class="nav-item" style="display: inline-flex;" >
+                            <a class="btn nav-link btn-md u-btn-outline-primary g-mr-10 g-mb-15 active" data-toggle="tab" href="#nav-1-1-primary-hor-fill--{Content.ItemIndex}" data-company={Content.ItemIndex} style="display: inline;" role="tab">{Content.Title}</a>
+                          </li>
+                        </stl:yes>
+                        <stl:no>
+                          <li class="nav-item" style="display: inline-flex;" >
+                            <a class="btn nav-link btn-md u-btn-outline-primary g-mr-10 g-mb-15" data-toggle="tab" href="#nav-1-1-primary-hor-fill--{Content.ItemIndex}" data-company={Content.ItemIndex} style="display: inline;" role="tab">{Content.Title}</a>
+                          </li>
+                        </stl:no>
+                      </stl:if>
+                    </stl:contents>
+                  </ul>
+                  <!-- End Nav tabs -->
+                  
+                  <hr class="g-my-15"/>
+                  
+                  <!-- Tab panes -->
+                  <div id="nav-1-1-primary-hor-fill" class="tab-content">
+                    <stl:contents channelIndex="联系我们">
+                      <stl:if type="ItemIndex" operate="Equals" value="1">
+                        <stl:yes>
+                          <div class="tab-pane fade show active" id="nav-1-1-primary-hor-fill--{Content.ItemIndex}" role="tabpanel">
+                            <h5>{Content.SubTitle}</h5>
+                            <table class="table">
+                              <thead></thead>
+                              <tbody>
+                                <tr>
+                                  <td>电话：<stl:content type="Summary"></stl:content></td>
+                                  <td>传真：<stl:content type="Author"></stl:content></td>
+                                </tr>
+                                <tr>
+                                  <td colspan="2">地址：<stl:content type="Source"></stl:content></td>
+                                </tr>
+                                <tr>
+                                  <td colspan="2" class="text-center"><img src="{Content.ImageUrl}"></td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </stl:yes>
+                        <stl:no>
+                          <div class="tab-pane fade show" id="nav-1-1-primary-hor-fill--{Content.ItemIndex}" role="tabpanel">
+                            <h5>{Content.SubTitle}</h5>
+                            <table class="table">
+                              <thead></thead>
+                              <tbody>
+                                <tr>
+                                  <td>电话：<stl:content type="Summary"></stl:content></td>
+                                  <td>传真：<stl:content type="Author"></stl:content></td>
+                                </tr>
+                                <tr>
+                                  <td colspan="2">地址：<stl:content type="Source"></stl:content></td>
+                                </tr>
+                                <tr>
+                                  <td colspan="2" class="text-center"><img src="{Content.ImageUrl}"></td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </stl:no>
+                      </stl:if>
+                    </stl:contents>
+                  </div>
+                  <!-- End Tab panes -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+      </section>
+      <stl:include file="@/include/footer.html"></stl:include>
+    </main>
+    <script src="http://api.map.baidu.com/api?v=2.0&amp;ak=uCZDTCIvw5HVuwjxVNaQum7z3II70GlA"></script>
+    <script>
+      var locationa = new Array();
+      $(document).ready(function(){
+      var height = $(window).height() - $("#js-header").height() - $("#js-header-2017").height();
+      $("#allmap").css("height", height);
+      
+      <stl:contents channelIndex="联系我们">
+        locationa[{Content.ItemIndex-1}] = {
+        point: new BMap.Point({content.x}),
+        opts : {width:200,height:50,title:"{Content.Title}"},
+        infowindow : "地址：{Content.SubTitle}"
+        }
+      </stl:contents>
+      var map = new BMap.Map("allmap"); 
+      var mapType1 = new BMap.MapTypeControl({mapTypes: [BMAP_NORMAL_MAP,BMAP_HYBRID_MAP]});
+      var mapType2 = new BMap.MapTypeControl({anchor: BMAP_ANCHOR_TOP_LEFT});
+      var overView = new BMap.OverviewMapControl();
+      var overViewOpen = new BMap.OverviewMapControl({isOpen:true, anchor: BMAP_ANCHOR_BOTTOM_RIGHT});
+      map.addControl(new BMap.MapTypeControl({
+      mapTypes:[
+      BMAP_NORMAL_MAP,
+      BMAP_HYBRID_MAP
+      ]}));   
+      map.setCurrentCity("北京"); 
+      map.enableScrollWheelZoom(true);
+      map.setMapStyle({style:"hardedge"});
+      map.removeControl(mapType1);
+      map.removeControl(mapType2);
+      map.removeControl(overView);
+      map.removeControl(overViewOpen);
+      
+      function changepoint(num) {
+      num = num-1;
+      map.centerAndZoom(locationa[num].point, 15);
+      var marker = new BMap.Marker(locationa[num].point);
+      map.addOverlay(marker);
+      marker.setAnimation(BMAP_ANIMATION_BOUNCE);
+      
+      
+      var infoWindow = new BMap.InfoWindow(locationa[num].infowindow, locationa[num].opts);
+      marker.addEventListener("click", function(){          
+      map.openInfoWindow(infoWindow,locationa[num].point);
+      });
+      }
+      
+      changepoint(1);
+      
+      $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+      map.clearOverlays();
+      numa = $(e.target).data("company");
+      changepoint(numa);
+      })
+      })
+    </script>
+  </body>
+</html>
